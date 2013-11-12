@@ -1,0 +1,181 @@
+<HTML>
+<BODY BGCOLOR="white">
+<PRE>
+<FONT color="green">001</FONT>    /*<a name="line.1"></a>
+<FONT color="green">002</FONT>     * The contents of this file are subject to the Mozilla Public <a name="line.2"></a>
+<FONT color="green">003</FONT>     * License Version 1.1 (the "License"); you may not use this <a name="line.3"></a>
+<FONT color="green">004</FONT>     * file except in compliance with the License. You may obtain <a name="line.4"></a>
+<FONT color="green">005</FONT>     * a copy of the License at http://www.mozilla.org/MPL/<a name="line.5"></a>
+<FONT color="green">006</FONT>     * <a name="line.6"></a>
+<FONT color="green">007</FONT>     * Software distributed under the License is distributed on an <a name="line.7"></a>
+<FONT color="green">008</FONT>     * "AS IS" basis, WITHOUT WARRANTY OF ANY KIND, either express <a name="line.8"></a>
+<FONT color="green">009</FONT>     * or implied. See the License for the specific language governing<a name="line.9"></a>
+<FONT color="green">010</FONT>     * rights and limitations under the License.<a name="line.10"></a>
+<FONT color="green">011</FONT>     *<a name="line.11"></a>
+<FONT color="green">012</FONT>     *<a name="line.12"></a>
+<FONT color="green">013</FONT>     * The Original Code is OIOSAML Java Service Provider.<a name="line.13"></a>
+<FONT color="green">014</FONT>     * <a name="line.14"></a>
+<FONT color="green">015</FONT>     * The Initial Developer of the Original Code is Trifork A/S. Portions <a name="line.15"></a>
+<FONT color="green">016</FONT>     * created by Trifork A/S are Copyright (C) 2008 Danish National IT <a name="line.16"></a>
+<FONT color="green">017</FONT>     * and Telecom Agency (http://www.itst.dk). All Rights Reserved.<a name="line.17"></a>
+<FONT color="green">018</FONT>     * <a name="line.18"></a>
+<FONT color="green">019</FONT>     * Contributor(s):<a name="line.19"></a>
+<FONT color="green">020</FONT>     *   Joakim Recht &lt;jre@trifork.com&gt;<a name="line.20"></a>
+<FONT color="green">021</FONT>     *   Rolf Njor Jensen &lt;rolf@trifork.com&gt;<a name="line.21"></a>
+<FONT color="green">022</FONT>     *<a name="line.22"></a>
+<FONT color="green">023</FONT>     */<a name="line.23"></a>
+<FONT color="green">024</FONT>    package dk.itst.oiosaml.sp;<a name="line.24"></a>
+<FONT color="green">025</FONT>    <a name="line.25"></a>
+<FONT color="green">026</FONT>    import java.io.IOException;<a name="line.26"></a>
+<FONT color="green">027</FONT>    import java.util.ArrayList;<a name="line.27"></a>
+<FONT color="green">028</FONT>    import java.util.Collection;<a name="line.28"></a>
+<FONT color="green">029</FONT>    <a name="line.29"></a>
+<FONT color="green">030</FONT>    import org.opensaml.common.xml.SAMLConstants;<a name="line.30"></a>
+<FONT color="green">031</FONT>    import org.opensaml.saml2.core.Attribute;<a name="line.31"></a>
+<FONT color="green">032</FONT>    import org.opensaml.saml2.core.AttributeStatement;<a name="line.32"></a>
+<FONT color="green">033</FONT>    import org.opensaml.xml.security.credential.Credential;<a name="line.33"></a>
+<FONT color="green">034</FONT>    <a name="line.34"></a>
+<FONT color="green">035</FONT>    import dk.itst.oiosaml.configuration.SAMLConfiguration;<a name="line.35"></a>
+<FONT color="green">036</FONT>    import dk.itst.oiosaml.error.InvalidCertificateException;<a name="line.36"></a>
+<FONT color="green">037</FONT>    import dk.itst.oiosaml.security.CredentialRepository;<a name="line.37"></a>
+<FONT color="green">038</FONT>    import dk.itst.oiosaml.sp.metadata.IdpMetadata;<a name="line.38"></a>
+<FONT color="green">039</FONT>    import dk.itst.oiosaml.sp.metadata.SPMetadata;<a name="line.39"></a>
+<FONT color="green">040</FONT>    import dk.itst.oiosaml.sp.metadata.IdpMetadata.Metadata;<a name="line.40"></a>
+<FONT color="green">041</FONT>    import dk.itst.oiosaml.sp.model.OIOAssertion;<a name="line.41"></a>
+<FONT color="green">042</FONT>    import dk.itst.oiosaml.sp.model.OIOAttributeQuery;<a name="line.42"></a>
+<FONT color="green">043</FONT>    import dk.itst.oiosaml.sp.service.util.Constants;<a name="line.43"></a>
+<FONT color="green">044</FONT>    import dk.itst.oiosaml.sp.service.util.HttpSOAPClient;<a name="line.44"></a>
+<FONT color="green">045</FONT>    import dk.itst.oiosaml.sp.service.util.SOAPClient;<a name="line.45"></a>
+<FONT color="green">046</FONT>    import dk.itst.oiosaml.sp.util.AttributeUtil;<a name="line.46"></a>
+<FONT color="green">047</FONT>    <a name="line.47"></a>
+<FONT color="green">048</FONT>    public class UserAttributeQuery {<a name="line.48"></a>
+<FONT color="green">049</FONT>            private static final CredentialRepository credentialRepository = new CredentialRepository();<a name="line.49"></a>
+<FONT color="green">050</FONT>    <a name="line.50"></a>
+<FONT color="green">051</FONT>            private final String username;<a name="line.51"></a>
+<FONT color="green">052</FONT>            private final String password;<a name="line.52"></a>
+<FONT color="green">053</FONT>            private final SOAPClient client;<a name="line.53"></a>
+<FONT color="green">054</FONT>            private final Credential credential;<a name="line.54"></a>
+<FONT color="green">055</FONT>            private final boolean ignoreCertPath;<a name="line.55"></a>
+<FONT color="green">056</FONT>            private final boolean requireEncryption;<a name="line.56"></a>
+<FONT color="green">057</FONT>            private final Metadata idpMetadata;<a name="line.57"></a>
+<FONT color="green">058</FONT>            private final String spEntityId;<a name="line.58"></a>
+<FONT color="green">059</FONT>            <a name="line.59"></a>
+<FONT color="green">060</FONT>            public UserAttributeQuery() {<a name="line.60"></a>
+<FONT color="green">061</FONT>                    this(SAMLConfiguration.getSystemConfiguration().getString(Constants.PROP_RESOLVE_USERNAME, null), SAMLConfiguration.getSystemConfiguration().getString(Constants.PROP_RESOLVE_PASSWORD, null));<a name="line.61"></a>
+<FONT color="green">062</FONT>            }<a name="line.62"></a>
+<FONT color="green">063</FONT>            <a name="line.63"></a>
+<FONT color="green">064</FONT>            public UserAttributeQuery(String username, String password) {<a name="line.64"></a>
+<FONT color="green">065</FONT>                    this(UserAssertionHolder.get() != null ? UserAssertionHolder.get().getIssuer() : null, username, password);<a name="line.65"></a>
+<FONT color="green">066</FONT>            }<a name="line.66"></a>
+<FONT color="green">067</FONT>    <a name="line.67"></a>
+<FONT color="green">068</FONT>            public UserAttributeQuery(String idpEntityId, String username, String password) {<a name="line.68"></a>
+<FONT color="green">069</FONT>                    this(IdpMetadata.getInstance().getMetadata(idpEntityId), username, password, new HttpSOAPClient(), <a name="line.69"></a>
+<FONT color="green">070</FONT>                                    credentialRepository.getCredential(SAMLConfiguration.getStringPrefixedWithBRSHome(<a name="line.70"></a>
+<FONT color="green">071</FONT>                                                    SAMLConfiguration.getSystemConfiguration(), Constants.PROP_CERTIFICATE_LOCATION), <a name="line.71"></a>
+<FONT color="green">072</FONT>                                                    SAMLConfiguration.getSystemConfiguration().getString(Constants.PROP_CERTIFICATE_PASSWORD)),<a name="line.72"></a>
+<FONT color="green">073</FONT>                                    SAMLConfiguration.getSystemConfiguration().getBoolean(Constants.PROP_IGNORE_CERTPATH, false),<a name="line.73"></a>
+<FONT color="green">074</FONT>                                    SAMLConfiguration.getSystemConfiguration().getBoolean(Constants.PROP_REQUIRE_ENCRYPTION, true),<a name="line.74"></a>
+<FONT color="green">075</FONT>                                    SPMetadata.getInstance().getEntityID());<a name="line.75"></a>
+<FONT color="green">076</FONT>            }<a name="line.76"></a>
+<FONT color="green">077</FONT>            <a name="line.77"></a>
+<FONT color="green">078</FONT>            public UserAttributeQuery(Metadata idpMetadata, String username, String password, SOAPClient client, Credential credential, boolean ignoreCertPath, boolean requireEncryption, String spEntityId) {<a name="line.78"></a>
+<FONT color="green">079</FONT>                    this.spEntityId = spEntityId;<a name="line.79"></a>
+<FONT color="green">080</FONT>                    if (idpMetadata == null) throw new IllegalArgumentException("IdP Metadata cannot be null");<a name="line.80"></a>
+<FONT color="green">081</FONT>                    this.idpMetadata = idpMetadata;<a name="line.81"></a>
+<FONT color="green">082</FONT>                    this.username = username;<a name="line.82"></a>
+<FONT color="green">083</FONT>                    this.password = password;<a name="line.83"></a>
+<FONT color="green">084</FONT>                    this.client = client;<a name="line.84"></a>
+<FONT color="green">085</FONT>                    this.credential = credential;<a name="line.85"></a>
+<FONT color="green">086</FONT>                    this.ignoreCertPath = ignoreCertPath;<a name="line.86"></a>
+<FONT color="green">087</FONT>                    this.requireEncryption = requireEncryption;<a name="line.87"></a>
+<FONT color="green">088</FONT>            }<a name="line.88"></a>
+<FONT color="green">089</FONT>            <a name="line.89"></a>
+<FONT color="green">090</FONT>            public Collection&lt;UserAttribute&gt; query(String nameId, NameIDFormat format, String ... attributes) throws InvalidCertificateException, IOException {<a name="line.90"></a>
+<FONT color="green">091</FONT>                    UserAttribute[] attrs = new UserAttribute[attributes.length];<a name="line.91"></a>
+<FONT color="green">092</FONT>                    for (int i = 0; i &lt; attributes.length; i++) {<a name="line.92"></a>
+<FONT color="green">093</FONT>                            attrs[i] = UserAttribute.create(attributes[i], null);<a name="line.93"></a>
+<FONT color="green">094</FONT>                    }<a name="line.94"></a>
+<FONT color="green">095</FONT>                    return query(nameId, format, attrs);<a name="line.95"></a>
+<FONT color="green">096</FONT>            }<a name="line.96"></a>
+<FONT color="green">097</FONT>            <a name="line.97"></a>
+<FONT color="green">098</FONT>            public Collection&lt;UserAttribute&gt; query(String nameId, NameIDFormat format, UserAttribute ... attributes) throws InvalidCertificateException, IOException {<a name="line.98"></a>
+<FONT color="green">099</FONT>                    OIOAttributeQuery q = OIOAttributeQuery.newQuery(idpMetadata.getAttributeQueryServiceLocation(SAMLConstants.SAML2_SOAP11_BINDING_URI), nameId, format, spEntityId);<a name="line.99"></a>
+<FONT color="green">100</FONT>                    <a name="line.100"></a>
+<FONT color="green">101</FONT>                    for (UserAttribute attribute : attributes) {<a name="line.101"></a>
+<FONT color="green">102</FONT>                            q.addAttribute(attribute.getName(), attribute.getFormat());<a name="line.102"></a>
+<FONT color="green">103</FONT>                    }<a name="line.103"></a>
+<FONT color="green">104</FONT>                    OIOAssertion res = q.executeQuery(client, credential, username, password, ignoreCertPath, idpMetadata.getCertificates(), !requireEncryption);<a name="line.104"></a>
+<FONT color="green">105</FONT>                    <a name="line.105"></a>
+<FONT color="green">106</FONT>                    Collection&lt;UserAttribute&gt; attrs = new ArrayList&lt;UserAttribute&gt;();<a name="line.106"></a>
+<FONT color="green">107</FONT>                    for (AttributeStatement attrStatement : res.getAssertion().getAttributeStatements()) {<a name="line.107"></a>
+<FONT color="green">108</FONT>                            for (Attribute attr : attrStatement.getAttributes()) {<a name="line.108"></a>
+<FONT color="green">109</FONT>                                    attrs.add(new UserAttribute(attr.getName(), attr.getFriendlyName(), AttributeUtil.extractAttributeValueValues(attr), attr.getNameFormat()));<a name="line.109"></a>
+<FONT color="green">110</FONT>                            }<a name="line.110"></a>
+<FONT color="green">111</FONT>                    }<a name="line.111"></a>
+<FONT color="green">112</FONT>                    <a name="line.112"></a>
+<FONT color="green">113</FONT>                    return attrs;<a name="line.113"></a>
+<FONT color="green">114</FONT>            }<a name="line.114"></a>
+<FONT color="green">115</FONT>    }<a name="line.115"></a>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</PRE>
+</BODY>
+</HTML>

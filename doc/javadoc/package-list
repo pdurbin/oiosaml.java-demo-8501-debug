@@ -1,0 +1,17 @@
+dk.itst.oiosaml.common
+dk.itst.oiosaml.configuration
+dk.itst.oiosaml.error
+dk.itst.oiosaml.logging
+dk.itst.oiosaml.security
+dk.itst.oiosaml.sp
+dk.itst.oiosaml.sp.bindings
+dk.itst.oiosaml.sp.configuration
+dk.itst.oiosaml.sp.develmode
+dk.itst.oiosaml.sp.metadata
+dk.itst.oiosaml.sp.model
+dk.itst.oiosaml.sp.model.validation
+dk.itst.oiosaml.sp.service
+dk.itst.oiosaml.sp.service.session
+dk.itst.oiosaml.sp.service.session.jdbc
+dk.itst.oiosaml.sp.service.util
+dk.itst.oiosaml.sp.util
