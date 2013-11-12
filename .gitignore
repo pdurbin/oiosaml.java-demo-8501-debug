@@ -1,0 +1,5 @@
+.DS_Store
+src/target
+src/lib/build
+src/lib/dist
+src/velocity.log*
