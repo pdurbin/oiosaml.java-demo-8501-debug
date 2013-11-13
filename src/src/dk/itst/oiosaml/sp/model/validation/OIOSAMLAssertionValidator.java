@@ -29,6 +29,7 @@ import org.opensaml.saml2.core.Assertion;
 import org.opensaml.saml2.core.AuthnContext;
 import org.opensaml.saml2.core.AuthnContextClassRef;
 import org.opensaml.saml2.core.AuthnStatement;
+import org.opensaml.saml2.core.AttributeStatement;
 
 import dk.itst.oiosaml.common.OIOSAMLConstants;
 import dk.itst.oiosaml.sp.model.AssuranceLevel;
@@ -41,6 +42,7 @@ public class OIOSAMLAssertionValidator extends BasicAssertionValidator {
 		super.validate(assertion, spEntityId, spAssertionConsumerURL);
 		
 		Assertion a = assertion.getAssertion();
+//		log.info("assertion dump: " + a.getXMLObject().toString());
 		
 		DateTime confirmationTime = assertion.getConfirmationTime();
 		if (confirmationTime == null || !confirmationTime.isAfterNow()) {
@@ -74,9 +76,14 @@ public class OIOSAMLAssertionValidator extends BasicAssertionValidator {
     	if (assertion.getSessionIndex() == null) {  
     		throw new ValidationException("The assertion must contain a AuthnStatement@SessionIndex");
     	}
+    	log.info("number of attribute statements: " + a.getAttributeStatements().size());
     	// There must be exactly one AttributeStatement within the assertion
     	if (a.getAttributeStatements().size() != 1) {  
     		throw new ValidationException("The assertion must contain exactly one AttributeStatement. Contains " + a.getAttributeStatements().size());
+    	} else {
+    		for (AttributeStatement attributeStatement : a.getAttributeStatements()) {
+    			log.info("attribute statement found: " + attributeStatement.toString());
+    		}
     	}
     	// There must not be a AttributeStatement within the assertion
     	if (a.getAuthzDecisionStatements().size() != 0) {  

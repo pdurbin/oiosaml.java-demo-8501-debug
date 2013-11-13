@@ -438,6 +438,16 @@ public class ConfigurationHandler implements SAMLHandler {
 	
 	protected String getBaseUrl(HttpServletRequest request) {
 		String url = request.getRequestURL().toString();
+		log.info("url (old method): " + url);
+		// might only be necessary because of my crazy pagekite setup --pdurbin
+//		url = request.getScheme()
+		url = "https"
+			      + "://"
+			      + request.getServerName()
+			      + ":"
+			      + request.getServerPort()
+			      + request.getRequestURI();
+		log.info("url (new method): " + url);
 		int idx = url.lastIndexOf(request.getServletPath());
 		
 		return url.substring(0, idx + request.getServletPath().length());
@@ -531,6 +541,7 @@ public class ConfigurationHandler implements SAMLHandler {
 	
 	protected Map<String, Object> getStandardParameters(HttpServletRequest request) {
 		String base = getBaseUrl(request);
+//		base = "https://pdurbin.pagekite.me/oiosaml.java-demo-8501-debug/saml/configure"; // pdurbin
 		Map<String, Object> params = new HashMap<String, Object>();
 		params.put("artifactResponseUrl", base + "/SAMLAssertionConsumer");
 		params.put("postResponseUrl", base + "/SAMLAssertionConsumer");
@@ -541,6 +552,7 @@ public class ConfigurationHandler implements SAMLHandler {
         params.put("logoutPostRequestUrl", base + "/LogoutServiceHTTPPost");
 		params.put("home", getHome(servletContext));
 		params.put("entityId", getEntityId(request));
+		log.info("params dump: " + params.toString());
 		return params;
 	}
 

@@ -290,6 +290,7 @@ public final class Utils {
 					}
 				}
 				
+//				log.info("instance:" + instance.toString()); // pdurbin
 				handlers.put(key.substring(key.lastIndexOf('.') + 1), instance);
 
 			} catch (Exception e) {

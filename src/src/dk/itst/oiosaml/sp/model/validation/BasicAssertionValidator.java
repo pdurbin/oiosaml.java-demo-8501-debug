@@ -23,12 +23,14 @@
  */
 package dk.itst.oiosaml.sp.model.validation;
 
+import org.apache.log4j.Logger;
 import org.joda.time.DateTime;
 import org.opensaml.saml2.core.Assertion;
 
 import dk.itst.oiosaml.sp.model.OIOAssertion;
 
 public class BasicAssertionValidator implements AssertionValidator {
+	private static final Logger log = Logger.getLogger(BasicAssertionValidator.class);
 
 	public void validate(OIOAssertion assertion, String spEntityId, String spAssertionConsumerURL) throws ValidationException {
 		Assertion a = assertion.getAssertion();
@@ -47,6 +49,8 @@ public class BasicAssertionValidator implements AssertionValidator {
     	// There must be a Subject/NameID
     	if (assertion.getSubjectNameIDValue() == null) {  
     		throw new ValidationException("The assertion must contain a Subject/NameID");
+    	} else {
+    		log.info("Subject/NameId: " + assertion.getSubjectNameIDValue());
     	}
 		
     	// There must be a valid audience
