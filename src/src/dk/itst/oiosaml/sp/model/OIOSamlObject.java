@@ -188,14 +188,13 @@ public class OIOSamlObject {
 		BasicX509Credential credential = new BasicX509Credential();
 		credential.setPublicKey(publicKey);
 		SignatureValidator validator = new SignatureValidator(credential);
-		// disable this check for now... not playing nice with ADFS --pdurbin
-//		try {
-//			validator.validate(signature);
+		try {
+			validator.validate(signature);
 			return true;
-//		} catch (ValidationException e) {
-//			log.warn("The signature does not match the signature of the login site", e);
-//			return false;
-//		}
+		} catch (ValidationException e) {
+			log.warn("The signature does not match the signature of the login site", e);
+			return false;
+		}
 	}
 
 	public String toSoapEnvelope() {

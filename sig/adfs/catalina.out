@@ -1,0 +1,166 @@
+Nov 15, 2013 4:11:59 PM org.apache.catalina.startup.Catalina start
+INFO: Server startup in 2443 ms
+[2013-11-15 16:13:07.812] [INFO ] [http-8080-1] [dk.itst.oiosaml.sp.service.session.SessionCleaner] Starting session cleaner
+2013-11-15 16:13:07,812 [INFO] dk.itst.oiosaml.sp.service.session.SessionCleaner - Starting session cleaner
+2013-11-15 16:13:07,818 [INFO] OIOSAML_AUDIT_LOGGER - DISCOVER --- 127.0.0.1 3BDEFC0FC816FD9E2C58F34E56718154 '' '' 'http://adfs.medlab.harvard.edu/adfs/services/trust'
+[2013-11-15 16:13:07.818] [INFO ] [http-8080-1] [dk.itst.oiosaml.sp.service.LoginHandler] Using idp http://adfs.medlab.harvard.edu/adfs/services/trust at https://adfs.medlab.harvard.edu/adfs/ls/ with binding urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+2013-11-15 16:13:07,818 [INFO] dk.itst.oiosaml.sp.service.LoginHandler - Using idp http://adfs.medlab.harvard.edu/adfs/services/trust at https://adfs.medlab.harvard.edu/adfs/ls/ with binding urn:oasis:names:tc:SAML:2.0:bindings:HTTP-Redirect
+2013-11-15 16:13:07,883 [INFO] OIOSAML_AUDIT_LOGGER - AUTHNREQUEST_SEND --> 127.0.0.1 3BDEFC0FC816FD9E2C58F34E56718154 '' '<?xml version="1.0" encoding="UTF-8"?><saml2p:AuthnRequest xmlns:saml2p="urn:oasis:names:tc:SAML:2.0:protocol" AssertionConsumerServiceURL="https://pdurbin.pagekite.me:80/oiosaml.java-demo-8501-debug/saml/SAMLAssertionConsumer" Destination="https://adfs.medlab.harvard.edu/adfs/ls/" ForceAuthn="false" ID="_9beafd22-ae27-4967-9166-1a301b20d148" IsPassive="false" IssueInstant="2013-11-15T21:13:07.854Z" ProtocolBinding="urn:oasis:names:tc:SAML:2.0:bindings:HTTP-POST" Version="2.0"><saml2:Issuer xmlns:saml2="urn:oasis:names:tc:SAML:2.0:assertion">pdurbin.pagekite.me</saml2:Issuer></saml2p:AuthnRequest>' 'RequestID _9beafd22-ae27-4967-9166-1a301b20d148'
+2013-11-15 16:13:07,895 [DEBUG] org.apache.xml.security.algorithms.JCEMapper - Request for URI http://www.w3.org/2000/09/xmldsig#rsa-sha1
+2013-11-15 16:13:07,895 [DEBUG] org.apache.xml.security.algorithms.JCEMapper - Request for URI http://www.w3.org/2000/09/xmldsig#rsa-sha1
+2013-11-15 16:13:07,928 [INFO] OIOSAML_AUDIT_LOGGER - AUTHNREQUEST_REDIRECT --> 127.0.0.1 3BDEFC0FC816FD9E2C58F34E56718154 '' 'https://adfs.medlab.harvard.edu/adfs/ls/?SAMLRequest=fVJdT%2BMwEPwrlt%2BdxOlXajVFPRACiRMVDTzwctrE29aQ2DmvE93PJ%2F0SnO7Em%2B2dndmd8eLqT1OzHj0ZZ3Muo4QztJXTxu5y%2FlzcioxfLRcETZ22atWFvX3C3x1SYEOjJXWq5LzzVjkgQ8pCg6RCpTarnw8qjRLVehdc5WrOVkTowyB17Sx1DfoN%2Bt5U%2BPz0kPN9CC2pOG5150tjoxZ2%2BG4CRg2qLImdcQex6A16EBobJ7JJIodT2e3iQyU%2BCP6jwNnNMK2xEI4bXkRAb2kg1jWU0R58D15HqLvje1xTzNmt8xUeN875FmpCzu5vcv5rXiJsdZoKwHQmxvPpTMzldCokjBJZpomW42yA0hqITI%2BfzUQd3lsKYEPO00SOhJRCTopUKjlSySzKJuNXztZnt34Ye0rhO2vLE4jUXVGsxfpxU3D2cklzAPBzduqo7r%2BG9j0xXHzky%2F%2FksYi%2Fsi7P178%2FyPID&RelayState=_9f3440eb-ad18-4691-a802-3b99ab1c30a5&SigAlg=http%3A%2F%2Fwww.w3.org%2F2000%2F09%2Fxmldsig%23rsa-sha1&Signature=N5SGcUBR8jKo8WnHUnj42GrWkhTX%2FKsJMlAqpetv47oYrjqhEcgjkqdh97xq9sJ7T9ZYg3QF4n4wfzAjakHzRodVu7IuCzmvmc09RfEykjWSTWi%2F8t%2B3V%2Buzms%2B7LVqvsLfPAhDNXs%2F3s33DVkTfSodhysrHF2%2BRKnMIEDUA%2B2c%3D' 'RequestID _9beafd22-ae27-4967-9166-1a301b20d148'
+2013-11-15 16:13:10,826 [INFO] OIOSAML_AUDIT_LOGGER - AUTHNREQUEST_SEND <-- null null '' '<?xml version="1.0" encoding="UTF-8"?><samlp:Response xmlns:samlp="urn:oasis:names:tc:SAML:2.0:protocol" Consent="urn:oasis:names:tc:SAML:2.0:consent:unspecified" Destination="https://pdurbin.pagekite.me:80/oiosaml.java-demo-8501-debug/saml/SAMLAssertionConsumer" ID="_7241d029-52cc-49ed-bce6-f64bc26f8c12" InResponseTo="_9beafd22-ae27-4967-9166-1a301b20d148" IssueInstant="2013-11-15T21:13:08.636Z" Version="2.0"><Issuer xmlns="urn:oasis:names:tc:SAML:2.0:assertion">http://adfs.medlab.harvard.edu/adfs/services/trust</Issuer><samlp:Status><samlp:StatusCode Value="urn:oasis:names:tc:SAML:2.0:status:Success"/></samlp:Status><EncryptedAssertion xmlns="urn:oasis:names:tc:SAML:2.0:assertion"><xenc:EncryptedData xmlns:xenc="http://www.w3.org/2001/04/xmlenc#" Type="http://www.w3.org/2001/04/xmlenc#Element"><xenc:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#aes256-cbc"/><KeyInfo xmlns="http://www.w3.org/2000/09/xmldsig#"><e:EncryptedKey xmlns:e="http://www.w3.org/2001/04/xmlenc#"><e:EncryptionMethod Algorithm="http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p"><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"/></e:EncryptionMethod><KeyInfo><ds:X509Data xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:X509IssuerSerial><ds:X509IssuerName>OU=oiosaml-sp, O=keymanager</ds:X509IssuerName><ds:X509SerialNumber>1384369132575</ds:X509SerialNumber></ds:X509IssuerSerial></ds:X509Data></KeyInfo><e:CipherData><e:CipherValue>ZJ1EJygWt0rSApsVGHYDR3lL60vhAQZUjJirwyQOcmbqRQMJk9FTBckdV3my8bddpWASE2O7FPsYF89OKApZBCrJeDnkjtlulZc2jZ5HHEnR/6fwMzPllqVNrgFXpWRRbJcEDUBVisJ9xS4koKkRGOeqZCDjcEl1ygbXinHelUQ=</e:CipherValue></e:CipherData></e:EncryptedKey></KeyInfo><xenc:CipherData><xenc:CipherValue>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</xenc:CipherValue></xenc:CipherData></xenc:EncryptedData></EncryptedAssertion></samlp:Response>' 'RequestID _9beafd22-ae27-4967-9166-1a301b20d148'
+2013-11-15 16:13:10,839 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Getting XMLCipher for no transformation...
+2013-11-15 16:13:10,840 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Constructing XMLCipher...
+2013-11-15 16:13:10,851 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Initializing XMLCipher...
+2013-11-15 16:13:10,851 [DEBUG] org.apache.xml.security.encryption.XMLCipher - opmode = UNWRAP_MODE
+2013-11-15 16:13:10,851 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Loading encrypted key...
+2013-11-15 16:13:10,855 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("KeyInfo", "null")
+2013-11-15 16:13:10,855 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Decrypting key from previously loaded EncryptedKey...
+2013-11-15 16:13:10,855 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Encrypted octets:
+ZJ1EJygWt0rSApsVGHYDR3lL60vhAQZUjJirwyQOcmbqRQMJk9FTBckdV3my8bddpWASE2O7FPsYF89OKApZBCrJeDnkjtlulZc2jZ5HHEnR/6fwMzPllqVNrgFXpWRRbJcEDUBVisJ9xS4koKkRGOeqZCDjcEl1ygbXinHelUQ=
+2013-11-15 16:13:10,856 [DEBUG] org.apache.xml.security.encryption.XMLCipher - JCE Key Algorithm: AES
+2013-11-15 16:13:10,856 [DEBUG] org.apache.xml.security.algorithms.JCEMapper - Request for URI http://www.w3.org/2001/04/xmlenc#rsa-oaep-mgf1p
+2013-11-15 16:13:10,856 [DEBUG] org.apache.xml.security.encryption.XMLCipher - JCE Algorithm = RSA/ECB/OAEPWithSHA1AndMGF1Padding
+2013-11-15 16:13:10,879 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Decryption of key type http://www.w3.org/2001/04/xmlenc#aes256-cbc OK
+2013-11-15 16:13:10,879 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Getting XMLCipher for no transformation...
+2013-11-15 16:13:10,879 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Constructing XMLCipher...
+2013-11-15 16:13:10,879 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Initializing XMLCipher...
+2013-11-15 16:13:10,879 [DEBUG] org.apache.xml.security.encryption.XMLCipher - opmode = DECRYPT_MODE
+2013-11-15 16:13:10,879 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Decrypting to ByteArray...
+2013-11-15 16:13:10,880 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("KeyInfo", "null")
+2013-11-15 16:13:10,880 [DEBUG] org.apache.xml.security.encryption.XMLCipher - Encrypted octets:
+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
+2013-11-15 16:13:10,880 [DEBUG] org.apache.xml.security.algorithms.JCEMapper - Request for URI http://www.w3.org/2001/04/xmlenc#aes256-cbc
+2013-11-15 16:13:10,880 [DEBUG] org.apache.xml.security.encryption.XMLCipher - JCE Algorithm = AES/CBC/ISO10126Padding
+2013-11-15 16:13:10,911 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:Signature", "")
+2013-11-15 16:13:10,911 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:SignedInfo", "")
+2013-11-15 16:13:10,911 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:SignatureMethod", "")
+2013-11-15 16:13:10,911 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("KeyInfo", "")
+2013-11-15 16:13:10,920 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:Signature", "")
+2013-11-15 16:13:10,920 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:SignedInfo", "")
+2013-11-15 16:13:10,920 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:SignatureMethod", "")
+2013-11-15 16:13:10,920 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("KeyInfo", "")
+2013-11-15 16:13:10,926 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:Reference", "")
+2013-11-15 16:13:10,926 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:Transforms", "")
+2013-11-15 16:13:10,927 [DEBUG] org.apache.xml.security.utils.IdResolver - getElementByIdType() Search for ID _1f142493-2726-4fd8-98f4-d725af854d32
+2013-11-15 16:13:10,927 [DEBUG] org.apache.xml.security.utils.IdResolver - getElementByIdUsingDOM() Search for ID _1f142493-2726-4fd8-98f4-d725af854d32
+2013-11-15 16:13:10,927 [DEBUG] org.apache.xml.security.utils.IdResolver - I could find an Element using the simple getElementByIdUsingDOM method: Assertion
+2013-11-15 16:13:10,928 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:Transform", "")
+2013-11-15 16:13:10,928 [DEBUG] org.apache.xml.security.utils.ElementProxy - setElement("ds:Transform", "")
+2013-11-15 16:13:10,928 [DEBUG] org.apache.xml.security.signature.XMLSignature - SignatureMethodURI = http://www.w3.org/2000/09/xmldsig#rsa-sha1
+2013-11-15 16:13:10,928 [DEBUG] org.apache.xml.security.algorithms.SignatureAlgorithm - Create URI "http://www.w3.org/2000/09/xmldsig#rsa-sha1" class "class org.apache.xml.security.algorithms.implementations.SignatureBaseRSA$SignatureRSASHA1"
+2013-11-15 16:13:10,928 [DEBUG] org.apache.xml.security.algorithms.JCEMapper - Request for URI http://www.w3.org/2000/09/xmldsig#rsa-sha1
+2013-11-15 16:13:10,928 [DEBUG] org.apache.xml.security.algorithms.implementations.SignatureBaseRSA - Created SignatureRSA using SHA1withRSA
+2013-11-15 16:13:10,929 [DEBUG] org.apache.xml.security.signature.XMLSignature - jceSigAlgorithm    = SHA1withRSA
+2013-11-15 16:13:10,929 [DEBUG] org.apache.xml.security.signature.XMLSignature - jceSigProvider     = SunRsaSign
+2013-11-15 16:13:10,930 [DEBUG] org.apache.xml.security.signature.XMLSignature - PublicKey = Sun RSA public key, 2048 bits
+  modulus: 20699359759898774634700143349556170976289391686410466700210033311891177775775682735015138410231180983703438251156125923020958655379442762316517485195888328341462144868412061393481312241360685616664450194105657448177459836243218349789861555524693106745530854580917955942332575784444961301461233332079273471268910300068501574826957914300442500837421088855626115463430331232447518108235416732267907938605791833909609997260735013277859507889192605732674940600431347114001284818739066546630864850793066764080089179054548879736662821383295579459002302320776521904228342694386710460086697191880959056500950688570463904531371
+  public exponent: 65537
+2013-11-15 16:13:10,933 [DEBUG] org.apache.xml.security.utils.SignerOutputStream - Canonicalized SignedInfo:
+2013-11-15 16:13:10,933 [DEBUG] org.apache.xml.security.utils.SignerOutputStream - <ds:SignedInfo xmlns:ds="http://www.w3.org/2000/09/xmldsig#"><ds:CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></ds:CanonicalizationMethod><ds:SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha1"></ds:SignatureMethod><ds:Reference URI="#_1f142493-2726-4fd8-98f4-d725af854d32"><ds:Transforms><ds:Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature"></ds:Transform><ds:Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#"></ds:Transform></ds:Transforms><ds:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha1"></ds:DigestMethod><ds:DigestValue>mM0gp51X1Ump8j17eDNy6xPY6YQ=</ds:DigestValue></ds:Reference></ds:SignedInfo>
+2013-11-15 16:13:10,934 [WARN] org.apache.xml.security.signature.XMLSignature - Signature verification failed.
+[2013-11-15 16:13:10.934] [WARN ] [http-8080-2] [dk.itst.oiosaml.sp.model.OIOSamlObject] The signature does not match the signature of the login site
+org.opensaml.xml.validation.ValidationException: Signature did not validate against the credential's key
+	at org.opensaml.xml.signature.SignatureValidator.validate(SignatureValidator.java:78)
+	at dk.itst.oiosaml.sp.model.OIOSamlObject.verifySignature(OIOSamlObject.java:207)
+	at dk.itst.oiosaml.sp.model.OIOResponse.validateResponse(OIOResponse.java:114)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handleSAMLResponse(SAMLAssertionConsumerHandler.java:131)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handlePost(SAMLAssertionConsumerHandler.java:92)
+	at dk.itst.oiosaml.sp.service.DispatcherServlet.doPost(DispatcherServlet.java:160)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:643)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:861)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:606)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Thread.java:695)
+2013-11-15 16:13:10,934 [WARN] dk.itst.oiosaml.sp.model.OIOSamlObject - The signature does not match the signature of the login site
+org.opensaml.xml.validation.ValidationException: Signature did not validate against the credential's key
+	at org.opensaml.xml.signature.SignatureValidator.validate(SignatureValidator.java:78)
+	at dk.itst.oiosaml.sp.model.OIOSamlObject.verifySignature(OIOSamlObject.java:207)
+	at dk.itst.oiosaml.sp.model.OIOResponse.validateResponse(OIOResponse.java:114)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handleSAMLResponse(SAMLAssertionConsumerHandler.java:131)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handlePost(SAMLAssertionConsumerHandler.java:92)
+	at dk.itst.oiosaml.sp.service.DispatcherServlet.doPost(DispatcherServlet.java:160)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:643)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:861)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:606)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Thread.java:695)
+2013-11-15 16:13:10,934 [ERROR] OIOSAML_AUDIT_LOGGER - Dispatch:SAMLAssertionConsumer <-- null null '' '' 'The assertion is not signed correctly'
+dk.itst.oiosaml.sp.model.validation.ValidationException: The assertion is not signed correctly
+	at dk.itst.oiosaml.sp.model.OIOResponse.validateResponse(OIOResponse.java:119)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handleSAMLResponse(SAMLAssertionConsumerHandler.java:131)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handlePost(SAMLAssertionConsumerHandler.java:92)
+	at dk.itst.oiosaml.sp.service.DispatcherServlet.doPost(DispatcherServlet.java:160)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:643)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:861)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:606)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Thread.java:695)
+[2013-11-15 16:13:10.935] [ERROR] [http-8080-2] [dk.itst.oiosaml.sp.service.DispatcherServlet] Unable to validate Response
+dk.itst.oiosaml.sp.model.validation.ValidationException: The assertion is not signed correctly
+	at dk.itst.oiosaml.sp.model.OIOResponse.validateResponse(OIOResponse.java:119)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handleSAMLResponse(SAMLAssertionConsumerHandler.java:131)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handlePost(SAMLAssertionConsumerHandler.java:92)
+	at dk.itst.oiosaml.sp.service.DispatcherServlet.doPost(DispatcherServlet.java:160)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:643)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:861)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:606)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Thread.java:695)
+2013-11-15 16:13:10,935 [ERROR] dk.itst.oiosaml.sp.service.DispatcherServlet - Unable to validate Response
+dk.itst.oiosaml.sp.model.validation.ValidationException: The assertion is not signed correctly
+	at dk.itst.oiosaml.sp.model.OIOResponse.validateResponse(OIOResponse.java:119)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handleSAMLResponse(SAMLAssertionConsumerHandler.java:131)
+	at dk.itst.oiosaml.sp.service.SAMLAssertionConsumerHandler.handlePost(SAMLAssertionConsumerHandler.java:92)
+	at dk.itst.oiosaml.sp.service.DispatcherServlet.doPost(DispatcherServlet.java:160)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:643)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:723)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:290)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:206)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:233)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:191)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:127)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:103)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:109)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:293)
+	at org.apache.coyote.http11.Http11Processor.process(Http11Processor.java:861)
+	at org.apache.coyote.http11.Http11Protocol$Http11ConnectionHandler.process(Http11Protocol.java:606)
+	at org.apache.tomcat.util.net.JIoEndpoint$Worker.run(JIoEndpoint.java:489)
+	at java.lang.Thread.run(Thread.java:695)
